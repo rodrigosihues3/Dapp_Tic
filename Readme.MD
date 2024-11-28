@@ -1,16 +1,23 @@
-1. Instalaciones necesarias:
-    Node.js
-    Ganache
-    Visual Studio Code
+1.	Instalación de:
+-	Node.js
+-	Ganache (App para usar una red personal de Ethereum)
 
-2. Abrir proyecto en Visual Studio Code
+2.	Dentro de Node.js:
+-	npm install truffle –g (Instala truflle de forma global en el sistema)
 
-3. Ejecutar los siguientes comandos para instalar los paquetes necesarios
-    - npm truffle -g (Esto instala el entorno para el desarrollo en blockhain)
-    - npm install lite-server bootstrap web3 @metamask/detect-provider @truffle/contract slyther-analyzer
+3.	Moverse a un directorio y ejecutar para iniciar un proyecto:
+-	truffle init “Nombre de dapp”
 
-4. Ejecutar los siguientes comandos para desplegar los smartcontracts en caso de no tener instalado Truffle:
-    - truffle deploy
+4.	Ir a “truffle-config.js” y confirgurar la sección:
+-	 “development” con los datos de ganache al inciarlo
+-	“compilers” con la version de solidity a usar
 
-5. Finalmente usar el siguiente comando para ejecutar la DApp:
-    - npm run dev
+5.	Dentro del editor, abrir la terminal y ejecutar:
+-	Para instalar dependencias: npm i lite.server bootstrap
+-	Para iniciar los contratos inteligentes: “truflle deploy”
+-	Para crear el archivo “package.json”: npm init –yes
+
+6.	Dentro de “package.json” agregar en la sección “scripts”:
+-	"dev": "lite-server"
+
+7.	Comando para ejecutar la dapp: npm run dev
