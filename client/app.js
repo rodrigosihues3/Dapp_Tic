@@ -72,9 +72,12 @@ App = {
             const productID = product[0];
             const productTittle = product[1];
             const productDescription = product[2];
-            const productPublished = product[3];
+            const productExpirationDate = product[3];
+            const productBrand = product[4];
+            const productLote = product[5];
+            const productPublished = product[6];
             const productPublishedMessage = productPublished?"En circulación":"Fuera de circulación";
-            const productCreatedAT = product[4];
+            const productCreatedAT = product[7];
 
             if (productTittle != "" || productDescription != "") {
                 let productElements = `
@@ -103,6 +106,18 @@ App = {
                             <p class="card-text">${productDescription}</p>
                         </div>
 
+                        <div class="card-body">
+                            <p class="card-text">${productExpirationDate}</p>
+                        </div>
+                        
+                        <div class="card-body">
+                            <p class="card-text">${productBrand}</p>
+                        </div>
+                        
+                        <div class="card-body">
+                            <p class="card-text">${productLote}</p>
+                        </div>
+
                         <div class="card-footer text-muted">
                             <p class="text-muted">${productPublishedMessage} /// Creado el ${new Date(productCreatedAT*1000).toLocaleString()}</p>
                         </div>
@@ -126,8 +141,8 @@ App = {
         document.querySelector("#productsList").innerHTML = html;
     },
 
-    createProduct: async (title, description) => {
-        const result = await App.productsContract.createProduct(title, description, {
+    createProduct: async (title, description, expirationDate, brand, lote) => {
+        const result = await App.productsContract.createProduct(title, description, expirationDate, brand, lote, {
             from: App.account
         });
 
@@ -165,9 +180,9 @@ App = {
         }        
     },
     
-    updateProduct: async (id, newTitle, newDescription) => {
+    updateProduct: async (id, newTitle, newDescription, newExpirationDate, newBrand, newLote, newReasonForChange) => {
         try {            
-            await App.productsContract.updateProduct(id, newTitle, newDescription, {
+            await App.productsContract.updateProduct(id, newTitle, newDescription, newBrand, newLote, newReasonForChange, {
                 from: App.account
             });
             console.log(`Producto con ID ${id} actualizado con éxito.`);
