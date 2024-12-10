@@ -21,3 +21,5 @@
 -	"dev": "lite-server"
 
 7.	Comando para ejecutar la dapp: npm run dev
+
+Para pruebas unitarias, usar "truffle test" en la consola
