@@ -180,9 +180,9 @@ App = {
         }        
     },
     
-    updateProduct: async (id, newTitle, newDescription, newExpirationDate, newBrand, newLote, newReasonForChange) => {
+    updateProduct: async (id, newTitle, newDescription, newExpirationDate, newBrand, newLote, reasonForChange) => {
         try {            
-            await App.productsContract.updateProduct(id, newTitle, newDescription, newBrand, newLote, newReasonForChange, {
+            await App.productsContract.updateProduct(id, newTitle, newDescription, newExpirationDate, newBrand, newLote, reasonForChange, {
                 from: App.account
             });
             console.log(`Producto con ID ${id} actualizado con éxito.`);

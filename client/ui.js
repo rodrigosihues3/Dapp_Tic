@@ -10,10 +10,13 @@ productForm.addEventListener("submit", e => {
 
     console.log(
         productForm["title"].value,
-        productForm["description"].value
+        productForm["description"].value,
+        productForm["expirationDate"].value,
+        productForm["brand"].value,
+        productForm["lote"].value
     );
 
-    App.createProduct(productForm["title"].value, productForm["description"].value);
+    App.createProduct(productForm["title"].value, productForm["description"].value, productForm["expirationDate"].value, productForm["brand"].value, productForm["lote"].value);
 })
 
 updateProductForm.addEventListener("submit", e => {
@@ -22,8 +25,12 @@ updateProductForm.addEventListener("submit", e => {
     console.log(
         parseInt(updateProductForm["id"].value, 10),
         updateProductForm["newTitle"].value,
-        updateProductForm["newDescription"].value
+        updateProductForm["newDescription"].value,
+        updateProductForm["newExpirationDate"].value,
+        updateProductForm["newBrand"].value,
+        updateProductForm["newLote"].value,
+        updateProductForm["reasonForChange"].value
     );
 
-    App.updateProduct(parseInt(updateProductForm["id"].value, 10), updateProductForm["newTitle"].value, updateProductForm["newDescription"].value);
+    App.updateProduct(parseInt(updateProductForm["id"].value, 10), updateProductForm["newTitle"].value, updateProductForm["newDescription"].value, updateProductForm["newExpirationDate"].value, updateProductForm["newBrand"].value, updateProductForm["newLote"].value, updateProductForm["reasonForChange"].value);
 })
